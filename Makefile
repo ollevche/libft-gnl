@@ -39,18 +39,22 @@ OBJ 	=	$(addprefix $(OBJDIR), $(SRC:.c=.o))
 all: $(NAME)
 
 $(NAME): $(OBJDIR) $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	@echo "creating libft.a"
+	@ar rcs $(NAME) $(OBJ)
 
 $(OBJ): $(OBJDIR)%.o : $(SRCDIR)%.c
-	gcc -o $@ -c $< $(FLAGS)
+	@echo "creating libft object files"
+	@gcc -o $@ -c $< $(FLAGS)
 
 $(OBJDIR):
 	mkdir $(OBJDIR)
 
 clean:
-	rm -rf $(OBJ) $(OBJDIR)
+	@echo "removing libft object files"
+	@rm -rf $(OBJ) $(OBJDIR)
 
 fclean: clean
-	rm -rf $(NAME)
+	@echo "removing libft.a"
+	@rm -rf $(NAME)
 
 re: fclean all
