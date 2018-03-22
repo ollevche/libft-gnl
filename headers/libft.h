@@ -101,5 +101,6 @@ size_t			ft_wordcount(char const *s, char c);
 void			ft_displaylist(t_list *head, char *s);
 void			ft_putstrarr(char **arr);
 void			ft_free_strarr(char ***arr);
+char			**ft_strarr_trim(char **strarr, char c);
 
 #endif
